@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="static/js/libs/p5/p5.min.js"></script>
+	 <script type="text/javascript" src="static/js/sinusoide2.js"></script>
+	<title></title>
+</head>
+<body>
+     <div class="formWapper">
+     	<form>
+     		<input type="range" name="ampiezza" min="1" max="10" step="0.1"/>
+     		<input type="range" name="frequenza"/>
+     		<input type="range" name="fase"/>
+     	</form>
+     	<script type="text/javascript">
+     		let ampiezza = 100
+     		let frequenza = 0.05
+     		let fase = 0
+     		let angle = 0
+     		let increment =0.01
+     		function setup(){
+     			createCanvas(400, 400);
+     			background(220);
+     			line(0,200,400,200)
+     			//frameRate(15)//
+     		}
+
+     		function draw(){
+     			let x = map(angle,0,2*PI,0,400)
+     			let y = ampiezza*sin(2*PI*frequenza*angle+fase)
+     			stroke(0,0,255)
+     			strokeWeight(3)
+     			console.log(x,y)
+     			point(x,y+200)
+     			angle += increment 
+     		}
+     	</script>
+     	<script type="text/javascript">
+     		let amplitudeInput = document.querySelector("[name=ampiezza")
+
+     		console.log(amplitudeInput)
+
+     		amplitudeInput.addEventListener("input", function(e){
+     			console.log(`amplitude changed -> ${amplitudeInput}`)
+     		})
+     	</script>
+     	      <script type="text/javascript">
+     		let amplitudeInput = document.querySelector("[name=ampiezza")
+
+     		console.log(amplitudeInput)
+
+     		amplitudeInput.addEventListener("input", function(e){
+     			console.log(`amplitude changed -> ${amplitudeInput}`)
+     		})
+     	</script>
+     	</div>
+</body>
+</html>
